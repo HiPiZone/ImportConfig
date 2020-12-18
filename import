@@ -1,0 +1,18 @@
+class ImportConfig:
+    def __init__(self):
+        path_config =('./config/paths.cfg')
+
+        with open(path_config) as file:
+            f = file.read() # f to jest zmienna
+            f = f.split('\n')
+
+        self.dictionary = {}
+
+        for element in f:
+            element = element.split('=')
+            element = [x.strip() for x in element]
+            self.dictionary[element[0]] = element[1]
+
+    def get_value(self , key):
+
+        return self.dictionary[key]
